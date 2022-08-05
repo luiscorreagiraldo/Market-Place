@@ -5,7 +5,8 @@ const hamburger = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const carrito = document.querySelector(".navbar-shopping-cart");
-const productdetail = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer= document.querySelector("#productDetail")
 
 const cardsContainer = document.querySelector(".cards-container");
 
@@ -13,17 +14,42 @@ menuEmail.addEventListener("click", toggleDesktopMenu);
 hamburger.addEventListener("click", toggleMobileMenu);
 carrito.addEventListener("click", details);
 
+
+
+
+
+
+
+
+
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
+  mobileMenu.classList.add("inactive")
+  shoppingCartContainer.classList.add("inactive")
 }
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle("inactive");
+  desktopMenu.classList.add("inactive")
+  shoppingCartContainer.classList.add("inactive")
 }
 
 function details() {
-  productdetail.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
+  desktopMenu.classList.add("inactive")
+  mobileMenu.classList.add("inactive")
 }
+
+function openProductDetailAside (){
+  productDetailContainer.classList.remove("inactive")
+}
+
+
+
+
+
+
+
 
 const productList = [];
 productList.push({
@@ -46,27 +72,18 @@ productList.push({
   price: "$90.00",
   image: "./Smoking.jpg",
 });
-// <div class="product-card">
-// <img src="./pexels-photo-276517.jpg" alt="" class="product-img">
-// <div class="product-info">
-//     <div>
-//         <p>$120,00</p>
-//         <p>Bike</p>
-//     </div>
 
-//     <figure>
-//         <img src="./icons/bt_add_to_cart.svg" alt="">
-//     </figure>
-// </div>
-// </div>
 
 function renderProducts(arr) {
   for (product of arr) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
+
+    // PRODUCT= {name,price, image}=> product.image
     const img = document.createElement("img");
     img.setAttribute("src", product.image);
+    img.addEventListener("click", openProductDetailAside)
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -101,7 +118,3 @@ renderProducts(productList)
 
 
 
-// //borrar
-// const productInfoFigure=document.createElement('figure');
-// const productImgCart=document.createElement('img');
-// productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg');
