@@ -1,3 +1,5 @@
+alert("Hello! welcome to my online marketplace, I´m still working on it. You can click only on the email, the cards and the shopping cart. Make sure you also check the responsive design and how it behaves. thanks!")
+
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 
@@ -16,18 +18,13 @@ hamburger.addEventListener("click", toggleMobileMenu);
 carrito.addEventListener("click", details);
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
-
-
-
 //funciones
-
 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
   shoppingCartContainer.classList.add("inactive");
   productDetailContainer.classList.add("inactive");
-
 }
 
 function toggleMobileMenu() {
@@ -114,6 +111,24 @@ function renderProducts(arr) {
   }
 }
 renderProducts(productList);
+
+
+
+
+
+
+
+
+
+function letterFinder (word,match){
+  for (var i=0; i == word.length;i++){
+    if (word[i]==match){
+      console.log("Found the", match, "at", i)}
+      else{console.log("---No match found at", i)}
+    
+}}
+letterFinder("test", "t");
+
 
 
 
